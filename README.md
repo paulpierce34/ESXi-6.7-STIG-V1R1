@@ -9,7 +9,8 @@ Most of the items are included in what this script checks, but not all. Some of 
 
 
 *** WARNING: For the SSH commands required in the STIG, the script will create an SSH key locally, send to the target server, and OVERWRITE the authorized_keys file on the target server. This authorized_keys file will then be REMOVED from the ESXi host. Comment this section out if you already have a shared key with target server***
-Please test in a lab environment beforehand so you're familiar with what happens during the script process. 
+
+I recommend testing in a lab environment beforehand so you're familiar with what happens during the script process. 
 
 
 REQUIREMENTS:
