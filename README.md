@@ -8,13 +8,13 @@ I use this when we have a new ESXi host in our environment or when we've recentl
 Most of the items are included in what this script checks, but not all. Some of the ambiguous items can't really be automated.
 
 
-*** WARNING: For the SSH commands required in the STIG, the script will create an SSH key locally, send to the target server, and OVERWRITE the authorized_keys file on the target server. This authorized_keys file will then be REMOVED from the ESXi host. Comment this section out if you already have a shared key with target server***
+*** WARNING: For the SSH commands required in the STIG, the script will generate a 4096 bit SSH key locally, send to the target ESXi host, and OVERWRITE the authorized_keys file on the target server. This authorized_keys file will then be REMOVED from the ESXi host after execution completion. Comment this section out if you already have a shared key with target server ***
 
 I recommend testing in a lab environment beforehand so you're familiar with what happens during the script process. 
 
 
 REQUIREMENTS:
-- Blank ESXi 6.7 STIG checklist
+- Blank ESXi 6.7 V1R1 STIG checklist
 - Administrator permissions on ESXi host
 
 HOW TO USE:
