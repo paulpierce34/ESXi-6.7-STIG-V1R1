@@ -4,7 +4,7 @@ This script is used to STIG an ESXI 6.7 host according to DISA's most recent ESX
 When this script is ran, the target ESXi host will have all of the "Get" commands from the STIG executed and the outputs will be stored in an ESXi 6.7 STIG checklist.
 All of the associated 'Findings' or 'Not A Findings' will be updated in this output checklist, of course.
 
-I use this when we have a new ESXi host in our environment or when we've recently upgraded a 6.5 host to 6.7 and need to apply an entirely new STIG. 
+I use this when we have a new ESXi host in our environment or when we've recently upgraded and need to apply an entirely new STIG. 
 Most of the items are included in what this script checks, but not all. Some of the ambiguous items can't really be automated.
 
 
