@@ -2,7 +2,7 @@
 #-------------------------------------------Comments-------------------------------------------#
 
 
-# JLD
+# JL
 
 #-----------------------Predefined Values#----------------------#
 $DODBannerDCUI = @"
@@ -793,51 +793,4 @@ Function Remediation-Kickoff{
 
 Remediation-Kickoff
 
-<#
-Pause
-Get-StigInfoAttribute -CKLData $testData -Attribute classification
-Write-Host "-------------------------------------------------"
-Get-VulnInfoAttribute -CKLData $testData -VulnID "V-93949" -Attribute Fix_Text
-Write-Host "-------------------------------------------------"
-Get-VulnInfoAttribute -CKLData $testData -RuleID "SV-104035r1_rule" -Attribute Vuln_Discuss
-Write-Host "-------------------------------------------------"
-Get-VulnInfoAttribute -CKLData $testData -VulnID "V-94505" -Attribute STIGRef
-Write-Host "-------------------------------------------------"
-Get-VulnFindingAttribute -CKLData $testData -VulnID "V-93949" -Attribute FINDING_DETAILS
-Write-Host "-------------------------------------------------"
-Get-VulnFindingAttribute -CKLData $testData -VulnID "V-12345" -Attribute FINDING_DETAILS
-Write-Host "-------------------------------------------------"
-Set-VulnFindingAttribute -CKLData $testData -VulnID "V-93949" -Attribute COMMENTS -Value "This is the man with all the plans!!!!!"
-Write-Host "-------------------------------------------------"
-Export-StigCKL -CKLData $testData -Path ""
 
-
-
-
-    Set-VulnFindingAttribute -CKLData $testData -VulnID $VulnItem[1] -Attribute FINDING_DETAILS -Value $resultCompare
-    Set-VulnFindingAttribute -CKLData $testData -VulnID $VulnItem[1] -Attribute COMMENTS -Value "MS NAF"
-    Set-VulnFindingAttribute -CKLData $testData -VulnID "V-93949" -Attribute  -Value "This is the man with all the plans!!!!!"
-#>
-
-
-
-<# For the SSH portion of the ESXi STIG, steps needed are:
-	1) Connect to host and start SSH service using (Get-VMHostService | Where-Object {$_.Label -eq "SSH"} | Start-VMHostService)
-	2) Generate a SSH key using (ssh-keygen -t rsa -b 4096). Keep passphrase empty.
-	3) Connect to ESXi host using SSH.
-	4) Copy the new key to the host using and rename at the destination (scp <source of .ssh folder>\id_rsa.pub root@hostname:/etc/ssh/keys_root/authorized_keys2).
-	5) Rename file on destination server using (ssh root@hostname mv /etc/ssh/keys_root/authorized_keys2 /etc/ssh/keys_root/authorized_keys).
-	6) Copy STIG-compliant sshd_config and passwd file to target using same method of scp to move the authorized_keys file.
-	7) Run script that runs the check commands given in the STIG and write output to STIG checklist.
-	8) Remove the authorized_keys file once checks are completed.
-	9) Issue Warning to user that host needs to be rebooted.  Exit the SSH terminal.
-#>
-
-<#
-##Any Predefined values should go here##
-$VMHostName = Read-Host -Prompt "What is the name of the ESXi Host that you are working on?"
-$ActualResult = ''
-#$CPref = Read-Host -Prompt "Would you like confirmation for each command?  For yes use high, no use low."
-#$ConfirmPreference = $CPref
-
-#>
